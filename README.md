@@ -42,4 +42,4 @@ sqlite3 my_database.db < file.sql
 | 10 | 10-integrative.sql | Integrative queries |
 
 ## Author
-Ouarda — Holberton School Lille, Cohort 2026
+Omar
