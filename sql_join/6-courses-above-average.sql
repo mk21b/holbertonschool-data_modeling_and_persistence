@@ -1,13 +1,13 @@
 SELECT courses.title AS course_title
 FROM courses
-INNER JOIN enrollments ON enrollments.course_id = courses.id
+INNER JOIN enrollments ON courses.id = enrollments.course_id
 GROUP BY courses.id, courses.title
-HAVING COUNT(enrollments.student_id) > (
-    SELECT AVG(enrollment_count)
+HAVING COUNT(*) > (
+    SELECT AVG(nb_enrollments)
     FROM (
-        SELECT COUNT(student_id) AS enrollment_count
+        SELECT COUNT(*) AS nb_enrollments
         FROM enrollments
         GROUP BY course_id
+        )
     )
-)
-ORDER BY courses.title ASC;
+ORDER BY course_title ASC;
